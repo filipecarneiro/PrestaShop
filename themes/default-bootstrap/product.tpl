@@ -148,15 +148,29 @@
 		<!-- end left infos-->
 		<!-- center infos -->
 		<div class="pb-center-column col-xs-12 col-sm-4">
+<!--
 			{if $product->online_only}
 				<p class="online_only">{l s='Online only'}</p>
 			{/if}
+-->
 			<h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
+			<!-- Volume -->
+			{if isset($features) && $features}
+				<p id="product_volume">
+					{foreach from=$features item=feature}
+						{if $feature.name == 'Volume' && isset($feature.value)}
+							<label>{$feature.value|escape:'html':'UTF-8'}</label>
+						{/if}
+					{/foreach}
+				</p>
+			{/if}
+			<!-- Volume -->
 			<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
 				<label>{l s='Reference:'} </label>
 				<span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}{/if}">{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 			</p>
-			{if !$product->is_virtual && $product->condition}
+<!--
+ 			{if !$product->is_virtual && $product->condition}
 			<p id="product_condition">
 				<label>{l s='Condition:'} </label>
 				{if $product->condition == 'new'}
@@ -171,7 +185,8 @@
 				{/if}
 			</p>
 			{/if}
-			{if $product->description_short || $packItems|@count > 0}
+ -->
+ 			{if $product->description_short || $packItems|@count > 0}
 				<div id="short_description_block">
 					{if $product->description_short}
 						<div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
