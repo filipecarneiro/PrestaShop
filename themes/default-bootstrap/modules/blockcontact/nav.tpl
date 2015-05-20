@@ -27,6 +27,7 @@
 </div>
 {if $telnumber}
 	<span class="shop-phone{if isset($is_logged) && $is_logged} is_logged{/if}">
-		<i class="icon-phone"></i>{l s='Call us now:' mod='blockcontact'} <strong>{$telnumber}</strong>
+		<!-- <i class="icon-phone"></i>{l s='Call us now:' mod='blockcontact'} <strong>{$telnumber}</strong> -->
+		<a href="http://frigobardelivery.com.br"><i class="icon-search"></i><strong>Rua Ponta Delgada, Vila Olímpia, São Paulo - SP<strong></a>
 	</span>
 {/if}
