@@ -918,7 +918,7 @@ class FrontControllerCore extends Controller
 
 		if (!file_exists($this->getThemeDir().'js/autoload/'))
 		{
-			$this->addJS(_THEME_MOBILE_JS_DIR_.'jquery.mobile-1.3.0.min.js');
+			$this->addJS(_THEME_MOBILE_JS_DIR_.'jquery.mobile-1.3.2.min.js');
 			$this->addJS(_THEME_MOBILE_JS_DIR_.'jqm-docs.js');
 			$this->addJS(_PS_JS_DIR_.'tools.js');
 			$this->addJS(_THEME_MOBILE_JS_DIR_.'global.js');
@@ -927,7 +927,7 @@ class FrontControllerCore extends Controller
 
 		if (!file_exists($this->getThemeDir().'css/autoload/'))
 		{
-			$this->addCSS(_THEME_MOBILE_CSS_DIR_.'jquery.mobile-1.3.0.min.css', 'all');
+			$this->addCSS(_THEME_MOBILE_CSS_DIR_.'jquery.mobile-1.3.2.min.css', 'all');
 			$this->addCSS(_THEME_MOBILE_CSS_DIR_.'jqm-docs.css', 'all');
 			$this->addCSS(_THEME_MOBILE_CSS_DIR_.'global.css', 'all');
 		}
