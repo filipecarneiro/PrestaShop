@@ -1,5 +1,4 @@
-<?php
-/*
+{*
 * 2007-2013 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -22,14 +21,23 @@
 *  @copyright  2007-2013 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*/
+*}
 
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
+{capture assign='page_title'}{l s='New products'}{/capture}
+{include file='./page-title.tpl'}
 
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
-header("Location: ../");
-exit;
+{if $products}
+	<div data-role="content" id="content">
+		<div class="clearfix">
+			{include file="./category-product-sort.tpl" container_class="container-sort"}
+		</div>
+		<hr/>
+		{include file="./pagination.tpl"}
+		{include file="./category-product-list.tpl" products=$products}
+		{include file="./pagination.tpl"}
+		
+		{include file='./sitemap.tpl'}
+	</div><!-- #content -->
+{else}
+	<p class="warning">{l s='No new products.'}</p>
+{/if}

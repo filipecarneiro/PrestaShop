@@ -1,6 +1,5 @@
-<?php
-/*
-* 2007-2013 PrestaShop
+{*
+* 2007-2011 PrestaShop 
 *
 * NOTICE OF LICENSE
 *
@@ -19,17 +18,33 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2013 PrestaShop SA
+*  @copyright  2007-2011 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*/
+*}
 
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
+			<div id="footer">
+				<div class="ui-grid-a">
+					{hook h="displayMobileFooterChoice"}
+				</div><!-- /grid-a -->
 
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
+				<div id="full-site-section" class="center">
+					<a href="{$link->getPageLink('index', true)}?no_mobile_theme" data-ajax="false">{l s='Browse the full site'}</a>
+				</div>
 
-header("Location: ../");
-exit;
+				<div data-role="footer" data-theme="a" id="bar_footer">
+					<div id="link_bar_footer" class="ui-grid-a">
+						<div class="ui-block-a">
+							<a href="{$link->getPageLink('index', true)|escape:'html'}" data-ajax="false">{$PS_SHOP_NAME}</a>
+						</div>
+						{if $conditions}
+						<div class="ui-block-b">
+							<a href="{$link->getCMSLink($id_cgv)|escape:'html'}" data-ajax="false">{l s='Terms of service'}</a>
+						</div>
+						{/if}
+					</div>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+	</body>
+</html>
